@@ -1,0 +1,46 @@
+body {
+	background: #fdf6e3;
+	color: #2aa198;
+}
+
+.hidden {
+	display: none;
+}
+
+input:focus {
+    outline: 0;
+}
+
+input:focus {
+    outline: transparent;
+}
+
+.trainer-wrapper * {
+	font-size: 40px;
+	text-align: center;
+}
+
+.trainer-wrapper {
+	position: absolute;
+
+	top: 30%;
+	left: 0;
+	right: 0;
+}
+
+.trainer-wrapper input {
+	background: none;
+	border: none;
+	border-bottom: 1px solid  #2aa198;
+}
+.trainer-count {
+	font-size: 20px;
+}
+
+.trainer-real-answer.bad{
+	color: red;
+}
+
+.trainer-real-answer.good{
+	color: green;
+}
