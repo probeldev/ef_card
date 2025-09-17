@@ -1,3 +1,5 @@
+let $ = require('jquery');
+
 let currentList = [
 	{ question: 'Привет', answer: 'Hello' },
 	{ question: 'Мир', answer: 'World' },
