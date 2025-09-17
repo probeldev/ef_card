@@ -44,3 +44,12 @@ input:focus {
 .trainer-real-answer.good{
 	color: green;
 }
+
+.card-list-el {
+	border: 1px solid  #2aa198;
+	padding: 40px;
+	font-size: 20px;
+	width: 80%;
+	margin: 25px auto;
+	text-align: center;
+}

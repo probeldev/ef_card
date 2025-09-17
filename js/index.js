@@ -4,7 +4,7 @@ import { router } from './router.js'
 
 $(document).ready(function () {
 	router.showScreen(
-		router.screens.trainer,
+		router.screens.start,
 	);
 });
 
