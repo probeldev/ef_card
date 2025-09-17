@@ -50,8 +50,15 @@ const screen = {
 
 	checkAnwser: function () {
 		let userAnswer = $('.trainer-user-answer input').val();
+		userAnswer = userAnswer.trim();
+		userAnswer = userAnswer.toLowerCase();
 
-		if (userAnswer == this.list.cards[this.currentIndex].answer) {
+		let reference = this.list.cards[this.currentIndex].answer
+		reference = reference.trim();
+		reference = reference.toLowerCase();
+
+
+		if (userAnswer == reference) {
 			$('.trainer-real-answer').addClass('good');
 		} else {
 			$('.trainer-real-answer').addClass('bad');
