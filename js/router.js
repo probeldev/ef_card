@@ -10,6 +10,10 @@ export const router = {
 			bodyId: "screen-trainer",
 			worker: "./screen/trainer.js"
 		},
+		trainerSummary: {
+			bodyId: "screen-trainer-summary",
+			worker: "./screen/trainer-summary.js"
+		},
 	},
 
 	async showScreen(
@@ -39,7 +43,6 @@ export const router = {
 		} catch (error) {
 			console.error(`Ошибка загрузки модуля ${screen.worker}:`, error);
 		}
-		// implementPullToRefresh();
 	}
 }
 

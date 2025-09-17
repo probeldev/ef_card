@@ -6,11 +6,15 @@ import { router } from './../router.js'
 const screen = {
 	list: {},
 	currentIndex: 0,
+	correctAnswer: [],
+	incorrectAnswer: [],
 	init: function (list) {
 
 		let self = this;
 		self.list = list;
 		self.currentIndex = 0;
+		self.correctAnswer = [];
+		self.incorrectAnswer = [];
 
 
 		$('.trainer-user-answer input').val('');
@@ -53,15 +57,18 @@ const screen = {
 		userAnswer = userAnswer.trim();
 		userAnswer = userAnswer.toLowerCase();
 
-		let reference = this.list.cards[this.currentIndex].answer;
+		let referenceCard = this.list.cards[this.currentIndex];
+
+		let reference = referenceCard.answer;
 		reference = reference.trim();
 		reference = reference.toLowerCase();
 
-
 		if (userAnswer == reference) {
 			$('.trainer-real-answer').addClass('good');
+			this.correctAnswer.push(referenceCard);
 		} else {
 			$('.trainer-real-answer').addClass('bad');
+			this.incorrectAnswer.push(referenceCard);
 		}
 		$('.trainer-real-answer').removeClass('hidden');
 	},
@@ -73,7 +80,18 @@ const screen = {
 		$('.trainer-real-answer').addClass('hidden');
 		$('.trainer-real-answer').removeClass('good');
 		$('.trainer-real-answer').removeClass('bad');
-		this.writeQuestion();
+
+		if (this.currentIndex === this.list.cards.length) {
+			router.showScreen(
+				router.screens.trainerSummary,
+				{
+					correctAnswer: this.correctAnswer,
+					incorrectAnswer: this.incorrectAnswer
+				}
+			)
+		} else {
+			this.writeQuestion();
+		}
 	}
 }
 
