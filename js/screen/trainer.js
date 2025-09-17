@@ -53,7 +53,7 @@ const screen = {
 		userAnswer = userAnswer.trim();
 		userAnswer = userAnswer.toLowerCase();
 
-		let reference = this.list.cards[this.currentIndex].answer
+		let reference = this.list.cards[this.currentIndex].answer;
 		reference = reference.trim();
 		reference = reference.toLowerCase();
 
