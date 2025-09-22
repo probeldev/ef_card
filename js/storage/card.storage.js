@@ -17,11 +17,11 @@ export let cardStorage = (() => {
 		}
 	}
 
-	function add(content) {
+	function save(obj) {
 		// TODO: При добавлении не забывать проверять уникальность name
-		// TODO: Конвертировать в json
+		let jsonString = JSON.stringify(obj)
 		try {
-			fs.writeFileSync(filePath, content, 'utf8');
+			fs.writeFileSync(filePath, jsonString, 'utf8');
 			console.log('Файл успешно записан');
 			return true;
 		} catch (error) {
@@ -33,7 +33,7 @@ export let cardStorage = (() => {
 
 	return {
 		get: get,
-		add: add,
+		save: save,
 	}
 })();
 
