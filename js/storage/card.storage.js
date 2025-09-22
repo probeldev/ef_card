@@ -1,53 +1,33 @@
-let cards = [
-	{
-		name: "list 1",
-		cards: [
-			{ question: 'Привет', answer: 'Hello' },
-			{ question: 'Мир', answer: 'World' },
-			{ question: 'Вода', answer: 'Water' },
-			{ question: 'Огонь', answer: 'Fire' },
-			{ question: 'Земля', answer: 'Earth' },
-			{ question: 'Воздух', answer: 'Air' },
-			{ question: 'Дом', answer: 'House' },
-			{ question: 'Семья', answer: 'Family' },
-			{ question: 'Друг', answer: 'Friend' },
-			{ question: 'Время', answer: 'Time' },
-			{ question: 'Любовь', answer: 'Love' },
-			{ question: 'Работа', answer: 'Work' },
-			{ question: 'Еда', answer: 'Food' },
-			{ question: 'Деньги', answer: 'Money' },
-			{ question: 'Город', answer: 'City' }
-		]
-	},
-	{
-		name: "Вопросительные слова",
-		cards: [
-			{ question: 'Почему?', answer: 'Why?' },
-			{ question: 'Что?', answer: 'What?' },
-			{ question: 'Когда?', answer: 'When?' },
-			{ question: 'Где?', answer: 'Where?' },
-			{ question: 'Кто?', answer: 'Who?' },
-			{ question: 'Как?', answer: 'How?' },
-			{ question: 'Который?', answer: 'Which?' },
-			{ question: 'Чей?', answer: 'Whose?' },
-			{ question: 'Сколько? (неисчисляемое)', answer: 'How much?' },
-			{ question: 'Сколько? (исчисляемое)', answer: 'How many?' },
-			{ question: 'Как часто?', answer: 'How often?' },
-			{ question: 'Как долго?', answer: 'How long?' },
-			{ question: 'Как далеко?', answer: 'How far?' },
-			{ question: 'Во сколько?', answer: 'What time?' },
-			{ question: 'Какой тип?', answer: 'What kind of?' }
-		]
-	}
-];
+const fs = require('fs');
+const path = require('path');
+
+const dbPath = './cards.json'
+
 
 export let cardStorage = (() => {
 	function get() {
-		return cards;
+		try {
+			const data = fs.readFileSync(dbPath, 'utf8');
+			const obj = JSON.parse(data);
+			console.log('Содержимое файла:', data);
+			return obj;
+		} catch (error) {
+			console.error('Ошибка чтения файла:', error);
+			return null;
+		}
 	}
 
-	function add() {
+	function add(content) {
 		// TODO: При добавлении не забывать проверять уникальность name
+		// TODO: Конвертировать в json
+		try {
+			fs.writeFileSync(filePath, content, 'utf8');
+			console.log('Файл успешно записан');
+			return true;
+		} catch (error) {
+			console.error('Ошибка записи файла:', error);
+			return false;
+		}
 	}
 
 
@@ -57,4 +37,13 @@ export let cardStorage = (() => {
 	}
 })();
 
-
+function readFile(filePath) {
+	try {
+		const data = fs.readFileSync(filePath, 'utf8');
+		console.log('Содержимое файла:', data);
+		return data;
+	} catch (error) {
+		console.error('Ошибка чтения файла:', error);
+		return null;
+	}
+}
