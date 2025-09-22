@@ -37,13 +37,3 @@ export let cardStorage = (() => {
 	}
 })();
 
-function readFile(filePath) {
-	try {
-		const data = fs.readFileSync(filePath, 'utf8');
-		console.log('Содержимое файла:', data);
-		return data;
-	} catch (error) {
-		console.error('Ошибка чтения файла:', error);
-		return null;
-	}
-}
