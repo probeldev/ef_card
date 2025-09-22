@@ -1,6 +1,6 @@
 # EF Card
 
-English vocabulary apps for writing
+Vocabulary apps for writing in foreign languages
 
 ![main windows](https://github.com/probeldev/ef-card/blob/main/screenshots/main.png?raw=true)
 
