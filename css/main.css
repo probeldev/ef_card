@@ -20,6 +20,40 @@ input:focus {
     outline: transparent;
 }
 
+.round-button {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: none;
+    background: #fdf6e3;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.round-button:hover {
+    background: #fbeccd;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.round-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.round-button svg {
+    width: 32px;
+    height: 32px;
+	color: #2aa198;
+    stroke-width: 2;
+    fill: none;
+}
+
+
 .trainer-wrapper * {
 	font-size: 40px;
 	text-align: center;
